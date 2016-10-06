@@ -65,5 +65,10 @@ public abstract class Fahrzeug {
 
     // methods
 
+    public abstract int getRabatt();
+
+    public int getPreis() {
+        return (this.grundpreis - this.getRabatt());
+    }
 
 }

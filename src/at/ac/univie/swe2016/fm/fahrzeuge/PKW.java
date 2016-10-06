@@ -24,7 +24,16 @@ public class PKW extends Fahrzeug {
     }
 
     public String toString() {
-        return "";
+        String s = "";
+        s += "Typ:\tPKW\n";
+        s += "Id:\t" + this.getId() + "\n";
+        s += "Marke:\t" + this.getMarke() + "\n";
+        s += "Modell:\t" + this.getModell() + "\n";
+        s += "Baujahr:\t" + this.getBaujahr() + "\n";
+        s += "Grundpreis:\t" + this.getGrundpreis() + "\n";
+        s += "Überprüfungsdatum:\t" + this.getLastCheckDate() + "\n";
+        s += "Preis:\t" + this.getPreis() + "\n";
+        return s;
     }
 
 }
