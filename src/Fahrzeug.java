@@ -8,7 +8,11 @@ public abstract class Fahrzeug {
 
     // constructor
 
-    public Fahrzeug(String marke, String modell, int baujahr, int grundpreis, int id) {
+    public Fahrzeug() {
+
+    }
+
+    public Fahrzeug(String marke, String modell, int baujahr, int grundpreis) {
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
