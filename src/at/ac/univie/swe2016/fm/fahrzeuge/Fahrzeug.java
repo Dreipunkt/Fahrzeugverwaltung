@@ -15,7 +15,7 @@ public abstract class Fahrzeug {
 
     }
 
-    public Fahrzeug(String marke, String modell, int baujahr, int grundpreis) {
+    public Fahrzeug(String marke, String modell, int baujahr, int grundpreis, int id) {
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
