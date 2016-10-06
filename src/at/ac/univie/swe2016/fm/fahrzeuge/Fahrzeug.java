@@ -1,6 +1,7 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
 public abstract class Fahrzeug {
+
     private static int currentID = 0;
     private String marke;
     private String modell;
