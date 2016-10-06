@@ -1,26 +1,32 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.time.Year;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class PKW extends Fahrzeug {
 
-    private Date lastCheckDate;
+    private GregorianCalendar lastCheckDate;
 
-    public PKW(String marke, String modell, int baujahr, int grundpreis, Date lastCheckDate) {
+    public PKW(String marke, String modell, int baujahr, int grundpreis, GregorianCalendar lastCheckDate) {
         super(marke, modell, baujahr, grundpreis);
         this.lastCheckDate = lastCheckDate;
     }
 
-    public Date getLastCheckDate() {
+    public GregorianCalendar getLastCheckDate() {
         return lastCheckDate;
     }
 
-    public void setLastCheckDate(Date lastCheckDate) {
+    public void setLastCheckDate(GregorianCalendar lastCheckDate) {
         this.lastCheckDate = lastCheckDate;
     }
 
     public int getRabatt() {
-        return 0;
+        int per1 = (Year.now().getValue() - this.getBaujahr()) * 5;
+        int per2 = (GregorianCalendar.getInstance().get(Calendar.YEAR) - this.lastCheckDate.get(Calendar.YEAR)) * 2;
+        int per = per1 + per2;
+        return (per > 15) ? 15 : per;
     }
 
     public String toString() {
@@ -31,7 +37,11 @@ public class PKW extends Fahrzeug {
         s += "Modell:\t" + this.getModell() + "\n";
         s += "Baujahr:\t" + this.getBaujahr() + "\n";
         s += "Grundpreis:\t" + this.getGrundpreis() + "\n";
-        s += "Überprüfungsdatum:\t" + this.getLastCheckDate() + "\n";
+
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        format1.setCalendar(this.getLastCheckDate());
+
+        s += "Überprüfungsdatum:\t" + format1.format(this.getLastCheckDate().getTime()) + "\n";
         s += "Preis:\t" + this.getPreis() + "\n";
         return s;
     }

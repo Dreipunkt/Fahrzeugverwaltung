@@ -2,11 +2,11 @@ package at.ac.univie.swe2016.fm.fahrzeuge;
 
 public abstract class Fahrzeug {
 
-    private static int currentID = 0;
+    private static int currentID = 1;
     private String marke;
     private String modell;
     private int baujahr;
-    private int grundpreis;
+    private double grundpreis;
     private int id;
 
     // constructors
@@ -25,9 +25,7 @@ public abstract class Fahrzeug {
 
     // getters and setters
 
-    public String getMarke() {
-        return marke;
-    }
+    public String getMarke() { return marke; }
 
     public String getModell() {
         return modell;
@@ -37,7 +35,7 @@ public abstract class Fahrzeug {
         return baujahr;
     }
 
-    public int getGrundpreis() { return grundpreis; }
+    public double getGrundpreis() { return grundpreis; }
 
     public int getId() {
         return id;
@@ -67,8 +65,8 @@ public abstract class Fahrzeug {
 
     public abstract int getRabatt();
 
-    public int getPreis() {
-        return (this.grundpreis - this.getRabatt());
+    public double getPreis() {
+        return (this.grundpreis * ((100 - (double) this.getRabatt()) / 100) );
     }
 
 }

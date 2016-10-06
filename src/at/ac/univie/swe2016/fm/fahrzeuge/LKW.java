@@ -1,5 +1,7 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
+import java.time.Year;
+
 public class LKW extends Fahrzeug {
 
     public LKW(String marke, String modell, int baujahr, int grundpreis) {
@@ -7,12 +9,13 @@ public class LKW extends Fahrzeug {
     }
 
     public int getRabatt() {
-        return 0;
+        int per = (Year.now().getValue() - this.getBaujahr()) * 5;
+        return (per > 20) ? 20 : per;
     }
 
     public String toString() {
         String s = "";
-        s += "Typ:\tPKW\n";
+        s += "Typ:\tLKW\n";
         s += "Id:\t" + this.getId() + "\n";
         s += "Marke:\t" + this.getMarke() + "\n";
         s += "Modell:\t" + this.getModell() + "\n";

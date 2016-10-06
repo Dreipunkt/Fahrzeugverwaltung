@@ -5,7 +5,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.Fahrzeug;
 import java.util.List;
 
 public interface FahrzeugDAO {
-
+/*
     List getFahrzeugList();
 
     Fahrzeug getFahrzeugbyId(int id);
@@ -13,5 +13,5 @@ public interface FahrzeugDAO {
     void speichereFahrzeug(Fahrzeug f);
 
     void loescheFahrzeug(Fahrzeug f);
-
+*/
 }
