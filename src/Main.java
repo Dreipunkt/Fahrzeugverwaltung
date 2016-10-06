@@ -12,7 +12,6 @@ public class Main {
         LKW lkw1 = new LKW("MAN", "TGX", 2004, 50000);
 
         System.out.println(pkw1);
-        System.out.println("");
         System.out.println(lkw1);
     }
 
