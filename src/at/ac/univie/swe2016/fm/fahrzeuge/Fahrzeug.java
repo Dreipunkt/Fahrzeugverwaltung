@@ -1,3 +1,5 @@
+package at.ac.univie.swe2016.fm.fahrzeuge;
+
 public abstract class Fahrzeug {
     private static int currentID = 0;
     private String marke;
@@ -6,7 +8,7 @@ public abstract class Fahrzeug {
     private int grundpreis;
     private int id;
 
-    // constructor
+    // constructors
 
     public Fahrzeug() {
 
@@ -20,7 +22,7 @@ public abstract class Fahrzeug {
         this.id = currentID++;
     }
 
-    // standard getters and setters
+    // getters and setters
 
     public String getMarke() {
         return marke;
@@ -34,9 +36,7 @@ public abstract class Fahrzeug {
         return baujahr;
     }
 
-    public int getGrundpreis() {
-        return grundpreis;
-    }
+    public int getGrundpreis() { return grundpreis; }
 
     public int getId() {
         return id;
