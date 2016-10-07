@@ -63,6 +63,24 @@ public class FahrzeugClient {
                     }
                     break;
 
+                case "meanprice":
+                    if (args.length < 3) {
+                        fm.meanprice();
+                    }
+                    else {
+                        if (args[2].equals("pkw")) fm.meanpricePKW();
+                        if (args[2].equals("lkw")) fm.meanpriceLKW();
+                    }
+                    break;
+
+                case "meanage":
+                    fm.meanage();
+                    break;
+
+                case "oldest":
+                    fm.oldest();
+                    break;
+
                 default:
                     showHelp();
                     break;
@@ -81,6 +99,10 @@ public class FahrzeugClient {
         System.out.println("del <id>");
         System.out.println("count");
         System.out.println("count <type>");
+        System.out.println("meanprice");
+        System.out.println("meanprice <type>");
+        System.out.println("meanage");
+        System.out.println("oldest");
     }
 
 }

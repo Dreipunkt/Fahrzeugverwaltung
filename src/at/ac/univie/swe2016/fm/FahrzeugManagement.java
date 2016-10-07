@@ -6,6 +6,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.PKW;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.FahrzeugDAO;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.SerializedFahrzeugDAO;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,5 +69,65 @@ public class FahrzeugManagement {
             if (f instanceof LKW) i++;
         }
         System.out.println(i);
+    }
+
+    public void meanprice() {
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        double sum = 0;
+        for (Fahrzeug f : l) {
+            sum += f.getPreis();
+        }
+        System.out.println(sum / l.size());
+    }
+
+    public void meanpricePKW() {
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        double sum = 0;
+        int i = 0;
+        for (Fahrzeug f : l) {
+            if (f instanceof PKW) {
+                i++;
+                sum += f.getPreis();
+            }
+        }
+        if (i < 1) System.out.println(0);
+        else System.out.println(sum / i);
+    }
+
+    public void meanpriceLKW() {
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        double sum = 0;
+        int i = 0;
+        for (Fahrzeug f : l) {
+            if (f instanceof LKW) {
+                i++;
+                sum += f.getPreis();
+            }
+        }
+        if (i < 1) System.out.println(0);
+        else System.out.println(sum / i);
+    }
+
+    public void meanage() {
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        double sum = 0;
+        for (Fahrzeug f : l) {
+            sum += (Year.now().getValue() - f.getBaujahr());
+        }
+        System.out.println(sum / l.size());
+    }
+
+    public void oldest() {
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        int max = 0;
+        for (Fahrzeug f : l) {
+            if ((Year.now().getValue() - f.getBaujahr()) > max) max = (Year.now().getValue() - f.getBaujahr());
+        }
+        for (Fahrzeug f : l) {
+            if ((Year.now().getValue() - f.getBaujahr()) < max) l.remove(f);
+        }
+        for (Fahrzeug f : l) {
+            System.out.println(f);
+        }
     }
 }
