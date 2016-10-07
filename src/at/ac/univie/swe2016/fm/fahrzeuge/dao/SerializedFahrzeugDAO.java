@@ -14,7 +14,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
         this.path = path;
     }
 
-    public List getFahrzeugList() {
+    public List<Fahrzeug> getFahrzeugList() {
         List<Fahrzeug> list = new ArrayList<>();
         try {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(path));
@@ -39,7 +39,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     }
 
     public Fahrzeug getFahrzeugbyId(int id) {
-        List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
+        List<Fahrzeug> list = new ArrayList<>(this.getFahrzeugList());
 
         for (Fahrzeug f : list) {
             if (f.getId() == id) return f;
@@ -54,7 +54,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
                 System.out.println("Fahrzeug mit dieser ID schon vorhanden!");
                 return;
             }
-            List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
+            List<Fahrzeug> list = new ArrayList<>(this.getFahrzeugList());
             FileOutputStream fout = new FileOutputStream(path);
             ObjectOutputStream oout = new ObjectOutputStream(fout);
 
@@ -69,7 +69,7 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     }
 
     public void loescheFahrzeug(Fahrzeug f) {
-        List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
+        List<Fahrzeug> list = new ArrayList<>(this.getFahrzeugList());
 
         try {
             FileOutputStream fout = new FileOutputStream(path);

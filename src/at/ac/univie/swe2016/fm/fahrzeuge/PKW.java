@@ -1,5 +1,6 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.Calendar;
@@ -30,19 +31,20 @@ public class PKW extends Fahrzeug {
     }
 
     public String toString() {
+        DecimalFormat df = new DecimalFormat("#0.00");
         String s = "";
         s += "Typ:\tPKW\n";
         s += "Id:\t" + this.getId() + "\n";
         s += "Marke:\t" + this.getMarke() + "\n";
         s += "Modell:\t" + this.getModell() + "\n";
         s += "Baujahr:\t" + this.getBaujahr() + "\n";
-        s += "Grundpreis:\t" + this.getGrundpreis() + "\n";
+        s += "Grundpreis:\t" + df.format(this.getGrundpreis()) + "\n";
 
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         format1.setCalendar(this.getLastCheckDate());
 
         s += "Überprüfungsdatum:\t" + format1.format(this.getLastCheckDate().getTime()) + "\n";
-        s += "Preis:\t" + this.getPreis() + "\n";
+        s += "Preis:\t" + df.format(this.getPreis()) + "\n";
         return s;
     }
 

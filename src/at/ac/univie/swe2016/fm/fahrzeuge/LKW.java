@@ -1,5 +1,6 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
+import java.text.DecimalFormat;
 import java.time.Year;
 
 public class LKW extends Fahrzeug {
@@ -14,14 +15,15 @@ public class LKW extends Fahrzeug {
     }
 
     public String toString() {
+        DecimalFormat df = new DecimalFormat("#0.00");
         String s = "";
         s += "Typ:\tLKW\n";
         s += "Id:\t" + this.getId() + "\n";
         s += "Marke:\t" + this.getMarke() + "\n";
         s += "Modell:\t" + this.getModell() + "\n";
         s += "Baujahr:\t" + this.getBaujahr() + "\n";
-        s += "Grundpreis:\t" + this.getGrundpreis() + "\n";
-        s += "Preis:\t" + this.getPreis() + "\n";
+        s += "Grundpreis:\t" + df.format(this.getGrundpreis()) + "\n";
+        s += "Preis:\t" + df.format(this.getPreis()) + "\n";
         return s;
     }
 

@@ -91,18 +91,19 @@ public class FahrzeugClient {
     }
 
     public static void showHelp() {
-        System.out.println("Usage: Fahrzeugclient <Datanquelle> <Parameter>");
-        System.out.println("show");
-        System.out.println("show <id>");
-        System.out.println("add lkw <id> <marke> <modell> <baujahr> <grundpreis>");
-        System.out.println("add pkw <id> <marke> <modell> <baujahr> <grundpreis> <ueberpruefungsdatum>");
-        System.out.println("del <id>");
-        System.out.println("count");
-        System.out.println("count <type>");
-        System.out.println("meanprice");
-        System.out.println("meanprice <type>");
-        System.out.println("meanage");
-        System.out.println("oldest");
+        System.out.println("Usage: Fahrzeugclient <Datanquelle> <Parameter>\n");
+        System.out.println("Parameter:");
+        System.out.println("\tshow");
+        System.out.println("\tshow <id>");
+        System.out.println("\tadd lkw <id> <marke> <modell> <baujahr> <grundpreis>");
+        System.out.println("\tadd pkw <id> <marke> <modell> <baujahr> <grundpreis> <ueberpruefungsdatum>");
+        System.out.println("\tdel <id>");
+        System.out.println("\tcount");
+        System.out.println("\tcount <type>");
+        System.out.println("\tmeanprice");
+        System.out.println("\tmeanprice <type>");
+        System.out.println("\tmeanage");
+        System.out.println("\toldest");
     }
 
 }

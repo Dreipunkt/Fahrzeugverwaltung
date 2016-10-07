@@ -6,6 +6,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.PKW;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.FahrzeugDAO;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.SerializedFahrzeugDAO;
 
+import java.text.DecimalFormat;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,15 @@ import java.util.List;
 public class FahrzeugManagement {
 
     private FahrzeugDAO fahrzeugDAO;
+    private DecimalFormat df;
 
-    public FahrzeugManagement() {}
+    public FahrzeugManagement() {
+        df = new DecimalFormat("#0.00");
+    }
 
     public FahrzeugManagement(String path) {
         fahrzeugDAO = new SerializedFahrzeugDAO(path);
+        df = new DecimalFormat("#0.00");
     }
 
     public FahrzeugDAO getFahrzeugDAO() {
@@ -29,8 +34,8 @@ public class FahrzeugManagement {
     }
 
     public void show() {
-        List<Fahrzeug> list = new ArrayList<Fahrzeug>(fahrzeugDAO.getFahrzeugList());
-        for (Fahrzeug f : list) {
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
+        for (Fahrzeug f : l) {
             System.out.println(f);
         }
     }
@@ -49,12 +54,12 @@ public class FahrzeugManagement {
     }
 
     public void count() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         System.out.println(l.size());
     }
 
     public void countPKW() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int i = 0;
         for (Fahrzeug f : l) {
             if (f instanceof PKW) i++;
@@ -63,7 +68,7 @@ public class FahrzeugManagement {
     }
 
     public void countLKW() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int i = 0;
         for (Fahrzeug f : l) {
             if (f instanceof LKW) i++;
@@ -72,16 +77,16 @@ public class FahrzeugManagement {
     }
 
     public void meanprice() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         for (Fahrzeug f : l) {
             sum += f.getPreis();
         }
-        System.out.println(sum / l.size());
+        System.out.println(df.format(sum / l.size()));
     }
 
     public void meanpricePKW() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         int i = 0;
         for (Fahrzeug f : l) {
@@ -91,11 +96,11 @@ public class FahrzeugManagement {
             }
         }
         if (i < 1) System.out.println(0);
-        else System.out.println(sum / i);
+        else System.out.println(df.format(sum / i));
     }
 
     public void meanpriceLKW() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         int i = 0;
         for (Fahrzeug f : l) {
@@ -105,20 +110,20 @@ public class FahrzeugManagement {
             }
         }
         if (i < 1) System.out.println(0);
-        else System.out.println(sum / i);
+        else System.out.println(df.format(sum / i));
     }
 
     public void meanage() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         for (Fahrzeug f : l) {
             sum += (Year.now().getValue() - f.getBaujahr());
         }
-        System.out.println(sum / l.size());
+        System.out.println(df.format(sum / l.size()));
     }
 
     public void oldest() {
-        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int max = 0;
         for (Fahrzeug f : l) {
             if ((Year.now().getValue() - f.getBaujahr()) > max) max = (Year.now().getValue() - f.getBaujahr());
