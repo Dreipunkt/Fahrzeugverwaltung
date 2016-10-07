@@ -6,6 +6,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Enthält Methoden zur Serialisierung.
+ *
+ * @author Christian Rauch, 1202875
+ */
+
 public class SerializedFahrzeugDAO implements FahrzeugDAO {
 
     private String path = "";

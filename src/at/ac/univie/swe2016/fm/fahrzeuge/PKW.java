@@ -7,6 +7,12 @@ import java.time.Year;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * Erweitert Fahrzeug um PKW spezifische Eigenschaften und Methoden.
+ *
+ * @author Christian Rauch, 1202875
+ */
+
 public class PKW extends Fahrzeug {
 
     private GregorianCalendar lastCheckDate;

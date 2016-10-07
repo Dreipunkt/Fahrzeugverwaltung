@@ -8,6 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * Frontend. Verarbeitung und Validierung der Konsolenargumente und -parameter.
+ *
+ * @author Christian Rauch, 1202875
+ */
+
 public class FahrzeugClient {
 
     public static void main(String[] args) {

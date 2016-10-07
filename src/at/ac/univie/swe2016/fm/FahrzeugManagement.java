@@ -12,6 +12,12 @@ import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementiert die Logik zur Fahrzeugverwaltung.
+ *
+ * @author Christian Rauch, 1202875
+ */
+
 public class FahrzeugManagement {
 
     private FahrzeugDAO fahrzeugDAO;

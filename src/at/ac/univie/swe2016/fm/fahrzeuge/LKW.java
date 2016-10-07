@@ -4,6 +4,12 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.Year;
 
+/**
+ * Erweitert Fahrzeug um LKW spezifische Eigenschaften und Methoden.
+ *
+ * @author Christian Rauch, 1202875
+ */
+
 public class LKW extends Fahrzeug {
 
     public LKW(String marke, String modell, int baujahr, double grundpreis, int id) {
