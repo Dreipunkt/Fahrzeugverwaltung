@@ -1,6 +1,7 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.util.Calendar;
@@ -31,7 +32,10 @@ public class PKW extends Fahrzeug {
     }
 
     public String toString() {
-        DecimalFormat df = new DecimalFormat("#0.00");
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#0.00", otherSymbols);
+
         String s = "";
         s += "Typ:\tPKW\n";
         s += "Id:\t" + this.getId() + "\n";

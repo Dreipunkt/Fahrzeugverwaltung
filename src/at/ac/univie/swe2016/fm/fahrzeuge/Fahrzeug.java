@@ -1,6 +1,7 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
 import java.io.Serializable;
+import java.time.Year;
 
 public abstract class Fahrzeug implements Serializable {
 
@@ -12,9 +13,7 @@ public abstract class Fahrzeug implements Serializable {
 
     // constructors
 
-    public Fahrzeug() {
-
-    }
+    public Fahrzeug() {}
 
     public Fahrzeug(String marke, String modell, int baujahr, double grundpreis, int id) {
         this.marke = marke;
@@ -68,6 +67,10 @@ public abstract class Fahrzeug implements Serializable {
 
     public double getPreis() {
         return (this.grundpreis * ((100 - (double) this.getRabatt()) / 100) );
+    }
+
+    public int getAlter() {
+        return (Year.now().getValue() - this.baujahr);
     }
 
 }

@@ -1,6 +1,7 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.Year;
 
 public class LKW extends Fahrzeug {
@@ -15,7 +16,10 @@ public class LKW extends Fahrzeug {
     }
 
     public String toString() {
-        DecimalFormat df = new DecimalFormat("#0.00");
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("#0.00", otherSymbols);
+
         String s = "";
         s += "Typ:\tLKW\n";
         s += "Id:\t" + this.getId() + "\n";

@@ -7,6 +7,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.dao.FahrzeugDAO;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.SerializedFahrzeugDAO;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,9 @@ public class FahrzeugManagement {
     private DecimalFormat df;
 
     public FahrzeugManagement() {
-        df = new DecimalFormat("#0.00");
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
+        otherSymbols.setDecimalSeparator('.');
+        df = new DecimalFormat("#0.00", otherSymbols);
     }
 
     public FahrzeugManagement(String path) {
@@ -117,7 +120,7 @@ public class FahrzeugManagement {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         for (Fahrzeug f : l) {
-            sum += (Year.now().getValue() - f.getBaujahr());
+            sum += f.getAlter();
         }
         System.out.println(df.format(sum / l.size()));
     }
@@ -126,10 +129,10 @@ public class FahrzeugManagement {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int max = 0;
         for (Fahrzeug f : l) {
-            if ((Year.now().getValue() - f.getBaujahr()) > max) max = (Year.now().getValue() - f.getBaujahr());
+            if (f.getAlter() > max) max = f.getAlter();
         }
         for (Fahrzeug f : l) {
-            if ((Year.now().getValue() - f.getBaujahr()) < max) l.remove(f);
+            if (f.getAlter() < max) l.remove(f);
         }
         for (Fahrzeug f : l) {
             System.out.println(f);
