@@ -1,6 +1,8 @@
 package at.ac.univie.swe2016.fm;
 
 import at.ac.univie.swe2016.fm.fahrzeuge.Fahrzeug;
+import at.ac.univie.swe2016.fm.fahrzeuge.LKW;
+import at.ac.univie.swe2016.fm.fahrzeuge.PKW;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.FahrzeugDAO;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.SerializedFahrzeugDAO;
 
@@ -40,19 +42,31 @@ public class FahrzeugManagement {
         fahrzeugDAO.speichereFahrzeug(f);
     }
 
-    public void del() {
-
+    public void del(int id) {
+        Fahrzeug f = fahrzeugDAO.getFahrzeugbyId(id);
+        fahrzeugDAO.loescheFahrzeug(f);
     }
 
     public void count() {
-
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        System.out.println(l.size());
     }
 
     public void countPKW() {
-
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        int i = 0;
+        for (Fahrzeug f : l) {
+            if (f instanceof PKW) i++;
+        }
+        System.out.println(i);
     }
 
     public void countLKW() {
-
+        List<Fahrzeug> l = fahrzeugDAO.getFahrzeugList();
+        int i = 0;
+        for (Fahrzeug f : l) {
+            if (f instanceof LKW) i++;
+        }
+        System.out.println(i);
     }
 }

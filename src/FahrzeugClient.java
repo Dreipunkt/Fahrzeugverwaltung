@@ -19,9 +19,16 @@ public class FahrzeugClient {
             FahrzeugManagement fm = new FahrzeugManagement(args[0]);
 
             switch (args[1]) {
+
                 case "show":
-                    fm.show();
+                    if (args.length < 3) {
+                        fm.show();
+                    }
+                    else {
+                        fm.show(Integer.parseInt(args[2]));
+                    }
                     break;
+
                 case "add":
                     if (args[2].equals("pkw")) {
                         GregorianCalendar cal = new GregorianCalendar();
@@ -40,6 +47,26 @@ public class FahrzeugClient {
                     } else {
                         showHelp();
                     }
+                    break;
+
+                case "del":
+                    fm.del(Integer.parseInt(args[2]));
+                    break;
+
+                case "count":
+                    if (args.length < 3) {
+                        fm.count();
+                    }
+                    else {
+                        if (args[2].equals("pkw")) fm.countPKW();
+                        if (args[2].equals("lkw")) fm.countLKW();
+                    }
+                    break;
+
+                default:
+                    showHelp();
+                    break;
+
             }
 
         }
@@ -47,8 +74,13 @@ public class FahrzeugClient {
 
     public static void showHelp() {
         System.out.println("Usage: Fahrzeugclient <Datanquelle> <Parameter>");
+        System.out.println("show");
+        System.out.println("show <id>");
         System.out.println("add lkw <id> <marke> <modell> <baujahr> <grundpreis>");
         System.out.println("add pkw <id> <marke> <modell> <baujahr> <grundpreis> <ueberpruefungsdatum>");
+        System.out.println("del <id>");
+        System.out.println("count");
+        System.out.println("count <type>");
     }
 
 }
