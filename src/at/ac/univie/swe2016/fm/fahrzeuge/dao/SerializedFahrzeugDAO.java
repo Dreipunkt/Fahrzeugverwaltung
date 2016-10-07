@@ -22,14 +22,17 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
             while (true) {
                 try {
                     list.add((Fahrzeug) in.readObject());
-                } catch (ClassNotFoundException e) {
+                } catch (EOFException e) {
                     in.close();
+                    break;
+                } catch (ClassNotFoundException e) {
+                    System.out.println(e.toString());
                     break;
                 }
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.toString());
         }
 
         return list;
@@ -37,8 +40,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
 
     public Fahrzeug getFahrzeugbyId(int id) {
         List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
-
-        //list = this.getFahrzeugList();
 
         for (Fahrzeug f : list) {
             if (f.getId() == id) return f;
@@ -49,15 +50,42 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
 
     public void speichereFahrzeug(Fahrzeug f) {
         try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(path));
-            out.writeObject(f);
-            out.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            if (getFahrzeugbyId(f.getId()) != null) {
+                System.out.println("Fahrzeug mit dieser ID schon vorhanden!");
+                return;
+            }
+            List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
+            FileOutputStream fout = new FileOutputStream(path);
+            ObjectOutputStream oout = new ObjectOutputStream(fout);
+
+            for (Fahrzeug o : list) { oout.writeObject(o); }
+            oout.writeObject(f);
+
+            oout.close();
+            fout.close();
+        } catch (Exception e) {
+            System.out.println(e.toString());
         }
     }
 
     public void loescheFahrzeug(Fahrzeug f) {
+        List<Fahrzeug> list = new ArrayList<Fahrzeug>(this.getFahrzeugList());
+
+        try {
+            FileOutputStream fout = new FileOutputStream(path);
+            ObjectOutputStream oout = new ObjectOutputStream(fout);
+
+            for (Fahrzeug o : list) {
+                if (f.getId() != o.getId()) {
+                    oout.writeObject(o);
+                }
+            }
+            oout.close();
+            fout.close();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
 
     }
 

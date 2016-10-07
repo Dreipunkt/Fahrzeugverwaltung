@@ -4,7 +4,7 @@ import java.time.Year;
 
 public class LKW extends Fahrzeug {
 
-    public LKW(String marke, String modell, int baujahr, int grundpreis, int id) {
+    public LKW(String marke, String modell, int baujahr, double grundpreis, int id) {
         super(marke, modell, baujahr, grundpreis, id);
     }
 

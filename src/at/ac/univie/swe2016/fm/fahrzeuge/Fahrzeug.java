@@ -1,8 +1,9 @@
 package at.ac.univie.swe2016.fm.fahrzeuge;
 
-public abstract class Fahrzeug {
+import java.io.Serializable;
 
-    private static int currentID = 1;
+public abstract class Fahrzeug implements Serializable {
+
     private String marke;
     private String modell;
     private int baujahr;
@@ -15,12 +16,12 @@ public abstract class Fahrzeug {
 
     }
 
-    public Fahrzeug(String marke, String modell, int baujahr, int grundpreis, int id) {
+    public Fahrzeug(String marke, String modell, int baujahr, double grundpreis, int id) {
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;
         this.grundpreis = grundpreis;
-        this.id = currentID++;
+        this.id = id;
     }
 
     // getters and setters

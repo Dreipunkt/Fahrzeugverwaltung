@@ -9,7 +9,7 @@ public class PKW extends Fahrzeug {
 
     private GregorianCalendar lastCheckDate;
 
-    public PKW(String marke, String modell, int baujahr, int grundpreis, int id, GregorianCalendar lastCheckDate) {
+    public PKW(String marke, String modell, int baujahr, double grundpreis, int id, GregorianCalendar lastCheckDate) {
         super(marke, modell, baujahr, grundpreis, id);
         this.lastCheckDate = lastCheckDate;
     }
