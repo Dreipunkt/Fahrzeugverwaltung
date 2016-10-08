@@ -113,7 +113,7 @@ public class FahrzeugClient {
      *
      */
 
-    public static void showHelp() {
+    private static void showHelp() {
         System.out.println("Usage: Fahrzeugclient <Datanquelle> <Parameter>\n");
         System.out.println("Parameter:");
         System.out.println("\tshow");
