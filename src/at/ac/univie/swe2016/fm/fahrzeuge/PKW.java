@@ -17,6 +17,18 @@ public class PKW extends Fahrzeug {
 
     private GregorianCalendar lastCheckDate;
 
+    /**
+     * Konstruktor f&uuml;r PKW. Erweitert den Fahrzeug Konstruktor um das letzte &Uuml;berpr&uuml;fungsdatum.
+     *
+     * @author Christian Rauch, 1202875
+     * @param marke Die Marke des PKW.
+     * @param modell Das Modell des PKW.
+     * @param baujahr Das Baujahr des PKW.
+     * @param grundpreis Der Grundpreis des PKW.
+     * @param id Die eindeutige ID, die dem PKW zugeordnet werden soll.
+     * @param lastCheckDate Das letzte &Uuml;berpr&uuml;fungsdatum des PKW im Format yyyy-MM-dd.
+     */
+
     public PKW(String marke, String modell, int baujahr, double grundpreis, int id, GregorianCalendar lastCheckDate) {
         super(marke, modell, baujahr, grundpreis, id);
         this.lastCheckDate = lastCheckDate;
@@ -29,6 +41,13 @@ public class PKW extends Fahrzeug {
     public void setLastCheckDate(GregorianCalendar lastCheckDate) {
         this.lastCheckDate = lastCheckDate;
     }
+
+    /**
+     * Berechnet den Rabatt f&uuml;r einen PKW. Pro Jahr werden 5% Rabatt vergeben + 2% pro Jahr seit letzter &Uuml;berpr&uuml;fung, bis zu einem Maximum von 15%.
+     *
+     * @author Christian Rauch, 1202875
+     * @return Rabatt als Prozentwert * 100. Zum Beispiel 5% Rabatt - returns 5
+     */
 
     public int getRabatt() {
         int per1 = (Year.now().getValue() - this.getBaujahr()) * 5;

@@ -12,9 +12,27 @@ import java.time.Year;
 
 public class LKW extends Fahrzeug {
 
+    /**
+     * Konstruktor f&uuml;r LKW.
+     *
+     * @author Christian Rauch, 1202875
+     * @param marke Die Marke des LKW.
+     * @param modell Das Modell des LKW.
+     * @param baujahr Das Baujahr des LKW.
+     * @param grundpreis Der Grundpreis des LKW.
+     * @param id Die eindeutige ID, die dem LKW zugeordnet werden soll.
+     */
+
     public LKW(String marke, String modell, int baujahr, double grundpreis, int id) {
         super(marke, modell, baujahr, grundpreis, id);
     }
+
+    /**
+     * Berechnet den Rabatt f&uuml;r einen LKW. Pro Jahr werden 5% Rabatt vergeben, bis zu einem Maximum von 20%.
+     *
+     * @author Christian Rauch, 1202875
+     * @return Rabatt als Prozentwert * 100. Beispiel: 5% Rabatt - returns 5
+     */
 
     public int getRabatt() {
         int per = (Year.now().getValue() - this.getBaujahr()) * 5;
