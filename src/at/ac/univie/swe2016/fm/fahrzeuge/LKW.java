@@ -39,6 +39,7 @@ public class LKW extends Fahrzeug {
         return (per > 20) ? 20 : per;
     }
 
+    @Override
     public String toString() {
         DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols();
         otherSymbols.setDecimalSeparator('.');

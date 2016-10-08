@@ -87,10 +87,10 @@ public class FahrzeugManagement {
     }
 
     /**
-     * Löscht ein Fahrzeug persistent.
+     * L&ouml;scht ein Fahrzeug persistent.
      *
      * @author Christian Rauch, 1202875
-     * @param id ID des zu löschenden Fahrzeuges
+     * @param id ID des zu l&ouml;schenden Fahrzeuges
      */
 
     public void del(int id) {
@@ -210,7 +210,7 @@ public class FahrzeugManagement {
     }
 
     /**
-     * Findet das bzw. die ältesten Fahrzeuge und gibt sie aus.
+     * Findet das bzw. die &auml;ltesten Fahrzeuge und gibt sie aus.
      *
      * @author Christian Rauch, 1202875
      */
