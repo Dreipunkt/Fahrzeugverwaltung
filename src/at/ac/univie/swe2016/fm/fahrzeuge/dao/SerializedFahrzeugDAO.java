@@ -19,7 +19,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     /**
      * Konstruktor der Klasse.
      *
-     * @author Christian Rauch, 1202875
      * @param path Pfad bzw. Dateiname, wo persistent gearbeitet werden soll
      */
 
@@ -30,7 +29,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     /**
      * Erstellt eine Liste aller gespeicherten Fahrzeuge.
      *
-     * @author Christian Rauch, 1202875
      * @return Liste aller gespeicherten Fahrzeuge
      */
 
@@ -61,7 +59,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     /**
      * Findet ein Fahrzeug per eindeutiger ID.
      *
-     * @author Christian Rauch, 1202875
      * @return Fahrzeug mit jeweiliger ID
      * @param id ID des gesuchten Fahrzeugs
      */
@@ -79,7 +76,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     /**
      * Speichert ein Fahrzeug persistent ab.
      *
-     * @author Christian Rauch, 1202875
      * @param f Fahrzeug, das gespeichert werden soll
      */
 
@@ -106,7 +102,6 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
     /**
      * L&ouml;scht ein Fahrzeug aus der persistenten Speicherung
      *
-     * @author Christian Rauch, 1202875
      * @param f Fahrzeug, das gel&ouml;scht werden soll
      */
 

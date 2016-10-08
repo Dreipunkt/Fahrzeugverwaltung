@@ -20,7 +20,6 @@ public class PKW extends Fahrzeug {
     /**
      * Konstruktor f&uuml;r PKW. Erweitert den Fahrzeug Konstruktor um das letzte &Uuml;berpr&uuml;fungsdatum.
      *
-     * @author Christian Rauch, 1202875
      * @param marke Die Marke des PKW.
      * @param modell Das Modell des PKW.
      * @param baujahr Das Baujahr des PKW.
@@ -45,7 +44,6 @@ public class PKW extends Fahrzeug {
     /**
      * Berechnet den Rabatt f&uuml;r einen PKW. Pro Jahr werden 5% Rabatt vergeben + 2% pro Jahr seit letzter &Uuml;berpr&uuml;fung, bis zu einem Maximum von 15%.
      *
-     * @author Christian Rauch, 1202875
      * @return Rabatt als Prozentwert * 100. Zum Beispiel 5% Rabatt - returns 5
      */
 

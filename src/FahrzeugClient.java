@@ -99,7 +99,6 @@ public class FahrzeugClient {
     /**
      * Zeigt Usage und Liste der m&ouml;glichen Parameter
      *
-     * @author Christian Rauch, 1202875
      */
 
     public static void showHelp() {

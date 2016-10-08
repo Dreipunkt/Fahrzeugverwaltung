@@ -24,7 +24,6 @@ public abstract class Fahrzeug implements Serializable {
     /**
      * Allgemeiner Konstruktor f&uuml;r Fahrzeuge.
      *
-     * @author Christian Rauch, 1202875
      * @param marke Die Marke des Fahrzeuges.
      * @param modell Das Modell des Fahrzeuges.
      * @param baujahr Das Baujahr des Fahrzeuges.
@@ -85,7 +84,6 @@ public abstract class Fahrzeug implements Serializable {
     /**
      * Berechnet den aktuellen Fahrzeugpreis.
      *
-     * @author Christian Rauch, 1202875
      * @return aktueller Fahrzeugpreis
      */
 
@@ -96,7 +94,6 @@ public abstract class Fahrzeug implements Serializable {
     /**
      * Berechnet das aktuelle Alter des Fahrzeuges.
      *
-     * @author Christian Rauch, 1202875
      * @return aktuelles Alter des Fahrzeuges
      */
 

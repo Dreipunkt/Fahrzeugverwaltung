@@ -15,7 +15,6 @@ public class LKW extends Fahrzeug {
     /**
      * Konstruktor f&uuml;r LKW.
      *
-     * @author Christian Rauch, 1202875
      * @param marke Die Marke des LKW.
      * @param modell Das Modell des LKW.
      * @param baujahr Das Baujahr des LKW.
@@ -30,7 +29,6 @@ public class LKW extends Fahrzeug {
     /**
      * Berechnet den Rabatt f&uuml;r einen LKW. Pro Jahr werden 5% Rabatt vergeben, bis zu einem Maximum von 20%.
      *
-     * @author Christian Rauch, 1202875
      * @return Rabatt als Prozentwert * 100. Beispiel: 5% Rabatt - returns 5
      */
 
