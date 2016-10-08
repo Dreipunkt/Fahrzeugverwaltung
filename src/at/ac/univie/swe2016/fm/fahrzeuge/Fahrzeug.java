@@ -31,7 +31,10 @@ public abstract class Fahrzeug implements Serializable {
      * @param id Die eindeutige ID, die dem Fahrzeug zugeordnet werden soll.
      */
 
-    public Fahrzeug(String marke, String modell, int baujahr, double grundpreis, int id) {
+    public Fahrzeug(String marke, String modell, int baujahr, double grundpreis, int id) throws IllegalArgumentException {
+        if (baujahr > Year.now().getValue()) {
+            throw new IllegalArgumentException("Baujahr kann nicht stimmen!");
+        }
         this.marke = marke;
         this.modell = modell;
         this.baujahr = baujahr;

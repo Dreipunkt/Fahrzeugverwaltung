@@ -3,6 +3,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.Fahrzeug;
 import at.ac.univie.swe2016.fm.fahrzeuge.LKW;
 import at.ac.univie.swe2016.fm.fahrzeuge.PKW;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,86 +19,97 @@ public class FahrzeugClient {
 
     public static void main(String[] args) {
 
-        if (args.length < 2) {
-            showHelp();
-        } else {
+        try {
 
-            FahrzeugManagement fm = new FahrzeugManagement(args[0]);
+            if (args.length < 2) {
+                showHelp();
+            } else {
 
-            switch (args[1]) {
+                FahrzeugManagement fm = new FahrzeugManagement(args[0]);
 
-                case "show":
-                    if (args.length < 3) {
-                        fm.show();
-                    }
-                    else {
-                        fm.show(Integer.parseInt(args[2]));
-                    }
-                    break;
+                switch (args[1]) {
 
-                case "add":
-                    if (args[2].equals("pkw")) {
-                        GregorianCalendar cal = new GregorianCalendar();
-                        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-                        try {
-                            cal.setTime(format1.parse(args[8]));
-                            PKW pkw = new PKW(args[4], args[5], Integer.parseInt(args[6]), Integer.parseInt(args[7]), Integer.parseInt(args[3]), cal);
-                            fm.add(pkw);
-                        } catch (ParseException e) {
-                            System.out.println(e.toString());
+                    case "show":
+                        if (args.length < 3) {
+                            fm.show();
+                        } else {
+                            fm.show(Integer.parseInt(args[2]));
                         }
+                        break;
 
-                    } else if (args[2].equals("lkw")) {
-                        LKW lkw = new LKW(args[4], args[5], Integer.parseInt(args[6]), Integer.parseInt(args[7]), Integer.parseInt(args[3]));
-                        fm.add(lkw);
-                    } else {
+                    case "add":
+                        if (args[2].equals("pkw")) {
+                            GregorianCalendar cal = new GregorianCalendar();
+                            SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+
+                                cal.setTime(format1.parse(args[8]));
+                                PKW pkw = new PKW(args[4], args[5], Integer.parseInt(args[6]), Double.parseDouble(args[7]), Integer.parseInt(args[3]), cal);
+                                fm.add(pkw);
+
+
+                        } else if (args[2].equals("lkw")) {
+                            LKW lkw = new LKW(args[4], args[5], Integer.parseInt(args[6]), Double.parseDouble(args[7]), Integer.parseInt(args[3]));
+                            fm.add(lkw);
+                        } else {
+                            showHelp();
+                        }
+                        break;
+
+                    case "del":
+                        fm.del(Integer.parseInt(args[2]));
+                        break;
+
+                    case "count":
+                        if (args.length < 3) {
+                            fm.count();
+                        } else {
+                            if (args[2].equals("pkw")) fm.countPKW();
+                            if (args[2].equals("lkw")) fm.countLKW();
+                        }
+                        break;
+
+                    case "meanprice":
+                        if (args.length < 3) {
+                            fm.meanprice();
+                        } else {
+                            if (args[2].equals("pkw")) fm.meanpricePKW();
+                            if (args[2].equals("lkw")) fm.meanpriceLKW();
+                        }
+                        break;
+
+                    case "meanage":
+                        fm.meanage();
+                        break;
+
+                    case "oldest":
+                        fm.oldest();
+                        break;
+
+                    default:
                         showHelp();
-                    }
-                    break;
+                        break;
 
-                case "del":
-                    fm.del(Integer.parseInt(args[2]));
-                    break;
-
-                case "count":
-                    if (args.length < 3) {
-                        fm.count();
-                    }
-                    else {
-                        if (args[2].equals("pkw")) fm.countPKW();
-                        if (args[2].equals("lkw")) fm.countLKW();
-                    }
-                    break;
-
-                case "meanprice":
-                    if (args.length < 3) {
-                        fm.meanprice();
-                    }
-                    else {
-                        if (args[2].equals("pkw")) fm.meanpricePKW();
-                        if (args[2].equals("lkw")) fm.meanpriceLKW();
-                    }
-                    break;
-
-                case "meanage":
-                    fm.meanage();
-                    break;
-
-                case "oldest":
-                    fm.oldest();
-                    break;
-
-                default:
-                    showHelp();
-                    break;
+                }
 
             }
 
+        } catch(IOException e) {
+            System.out.println("Quelldatei konnte nicht gefunden werden!");
+            System.exit(1);
+        } catch(NullPointerException e) {
+            System.out.println("Fahrzeug konnte nicht gefunden werden!");
+            System.exit(2);
+        } catch(ParseException|NumberFormatException|ArrayIndexOutOfBoundsException e) {
+            System.out.println("Ungültige Eingabe!");
+            System.exit(3);
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            System.exit(4);
         }
     }
 
     /**
-     * Zeigt Usage und Liste der m&ouml;glichen Parameter
+     * Zeigt Usage-Help und Liste der m&ouml;glichen Parameter
      *
      */
 

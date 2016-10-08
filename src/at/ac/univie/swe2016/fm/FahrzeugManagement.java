@@ -6,6 +6,7 @@ import at.ac.univie.swe2016.fm.fahrzeuge.PKW;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.FahrzeugDAO;
 import at.ac.univie.swe2016.fm.fahrzeuge.dao.SerializedFahrzeugDAO;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.Year;
@@ -55,7 +56,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void show() {
+    public void show() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         for (Fahrzeug f : l) {
             System.out.println(f);
@@ -68,7 +69,7 @@ public class FahrzeugManagement {
      * @param id ID des auszugebenden Fahrzeuges
      */
 
-    public void show(int id) {
+    public void show(int id) throws IOException {
         System.out.println(fahrzeugDAO.getFahrzeugbyId(id));
     }
 
@@ -78,7 +79,7 @@ public class FahrzeugManagement {
      * @param f Fahrzeug, das hinzugef&uuml;gt werden soll
      */
 
-    public void add(Fahrzeug f) {
+    public void add(Fahrzeug f) throws IOException {
         fahrzeugDAO.speichereFahrzeug(f);
     }
 
@@ -88,7 +89,7 @@ public class FahrzeugManagement {
      * @param id ID des zu l&ouml;schenden Fahrzeuges
      */
 
-    public void del(int id) {
+    public void del(int id) throws IOException {
         Fahrzeug f = fahrzeugDAO.getFahrzeugbyId(id);
         fahrzeugDAO.loescheFahrzeug(f);
     }
@@ -98,7 +99,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void count() {
+    public void count() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         System.out.println(l.size());
     }
@@ -108,7 +109,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void countPKW() {
+    public void countPKW() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int i = 0;
         for (Fahrzeug f : l) {
@@ -122,7 +123,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void countLKW() {
+    public void countLKW() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int i = 0;
         for (Fahrzeug f : l) {
@@ -136,7 +137,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void meanprice() {
+    public void meanprice() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         for (Fahrzeug f : l) {
@@ -150,7 +151,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void meanpricePKW() {
+    public void meanpricePKW() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         int i = 0;
@@ -169,7 +170,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void meanpriceLKW() {
+    public void meanpriceLKW() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         int i = 0;
@@ -188,7 +189,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void meanage() {
+    public void meanage() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         double sum = 0;
         for (Fahrzeug f : l) {
@@ -202,7 +203,7 @@ public class FahrzeugManagement {
      *
      */
 
-    public void oldest() {
+    public void oldest() throws IOException {
         List<Fahrzeug> l = new ArrayList<>(fahrzeugDAO.getFahrzeugList());
         int max = 0;
         for (Fahrzeug f : l) {

@@ -2,6 +2,7 @@ package at.ac.univie.swe2016.fm.fahrzeuge.dao;
 
 import at.ac.univie.swe2016.fm.fahrzeuge.Fahrzeug;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public interface FahrzeugDAO {
      * @return Liste aller gespeicherten Fahrzeuge
      */
 
-    List<Fahrzeug> getFahrzeugList();
+    List<Fahrzeug> getFahrzeugList() throws IOException;
 
     /**
      * Findet ein Fahrzeug per eindeutiger ID.
@@ -27,7 +28,7 @@ public interface FahrzeugDAO {
      * @param id ID des gesuchten Fahrzeugs
      */
 
-    Fahrzeug getFahrzeugbyId(int id);
+    Fahrzeug getFahrzeugbyId(int id) throws IOException;
 
     /**
      * Speichert ein Fahrzeug persistent ab.
@@ -35,7 +36,7 @@ public interface FahrzeugDAO {
      * @param f Fahrzeug, das gespeichert werden soll
      */
 
-    void speichereFahrzeug(Fahrzeug f);
+    void speichereFahrzeug(Fahrzeug f) throws IllegalArgumentException, IOException;
 
     /**
      * L&ouml;scht ein Fahrzeug aus der persistenten Speicherung
@@ -43,6 +44,6 @@ public interface FahrzeugDAO {
      * @param f Fahrzeug, das gel&ouml;scht werden soll
      */
 
-    void loescheFahrzeug(Fahrzeug f);
+    void loescheFahrzeug(Fahrzeug f) throws IllegalArgumentException, IOException;
 
 }
