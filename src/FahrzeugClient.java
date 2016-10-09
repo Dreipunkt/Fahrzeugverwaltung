@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Frontend. Verarbeitung und Validierung der Konsolenargumente und -parameter.
+ * Frontend. Verarbeitung der Konsolenargumente und -parameter und Exception-Handling.
  *
  * @author Christian Rauch, 1202875
  */
