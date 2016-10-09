@@ -14,7 +14,7 @@ import java.util.List;
 
 public class SerializedFahrzeugDAO implements FahrzeugDAO {
 
-    private String path = "";
+    private String path;
 
     /**
      * Konstruktor der Klasse.
@@ -23,6 +23,14 @@ public class SerializedFahrzeugDAO implements FahrzeugDAO {
      */
 
     public SerializedFahrzeugDAO(String path) {
+        this.path = path;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
         this.path = path;
     }
 
