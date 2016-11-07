@@ -17,6 +17,7 @@ public interface FahrzeugDAO {
      * Erstellt eine Liste aller gespeicherten Fahrzeuge.
      *
      * @return Liste aller gespeicherten Fahrzeuge
+     * @throws IOException
      */
 
     List<Fahrzeug> getFahrzeugList() throws IOException;
@@ -26,6 +27,7 @@ public interface FahrzeugDAO {
      *
      * @return Fahrzeug mit jeweiliger ID
      * @param id ID des gesuchten Fahrzeugs
+     * @throws IOException
      */
 
     Fahrzeug getFahrzeugbyId(int id) throws IOException;
@@ -34,6 +36,8 @@ public interface FahrzeugDAO {
      * Speichert ein Fahrzeug persistent ab.
      *
      * @param f Fahrzeug, das gespeichert werden soll
+     * @throws IOException
+     * @throws IllegalArgumentException
      */
 
     void speichereFahrzeug(Fahrzeug f) throws IllegalArgumentException, IOException;
@@ -42,6 +46,8 @@ public interface FahrzeugDAO {
      * L&ouml;scht ein Fahrzeug aus der persistenten Speicherung
      *
      * @param f Fahrzeug, das gel&ouml;scht werden soll
+     * @throws IOException
+     * @throws IllegalArgumentException
      */
 
     void loescheFahrzeug(Fahrzeug f) throws IllegalArgumentException, IOException;

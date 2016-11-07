@@ -53,7 +53,7 @@ public class FahrzeugManagement {
 
     /**
      * Gibt eine Liste aller Fahrzeuge aus.
-     *
+     * @throws IOException
      */
 
     public void show() throws IOException {
@@ -67,6 +67,7 @@ public class FahrzeugManagement {
      * Gibt ein bestimmtes Fahrzeug aus.
      *
      * @param id ID des auszugebenden Fahrzeuges
+     * @throws IOException
      */
 
     public void show(int id) throws IOException {
@@ -77,6 +78,7 @@ public class FahrzeugManagement {
      * F&uuml;gt ein Fahrzeug persistent hinzu.
      *
      * @param f Fahrzeug, das hinzugef&uuml;gt werden soll
+     * @throws IOException
      */
 
     public void add(Fahrzeug f) throws IOException {
@@ -87,6 +89,7 @@ public class FahrzeugManagement {
      * L&ouml;scht ein Fahrzeug persistent.
      *
      * @param id ID des zu l&ouml;schenden Fahrzeuges
+     * @throws IOException
      */
 
     public void del(int id) throws IOException {
@@ -96,7 +99,7 @@ public class FahrzeugManagement {
 
     /**
      * Gibt die Anzahl aller gespeicherten Fahrzeuge aus.
-     *
+     * @throws IOException
      */
 
     public void count() throws IOException {
@@ -106,7 +109,7 @@ public class FahrzeugManagement {
 
     /**
      * Gibt die Anzahl aller gespeicherten PKW aus.
-     *
+     * @throws IOException
      */
 
     public void countPKW() throws IOException {
@@ -120,7 +123,7 @@ public class FahrzeugManagement {
 
     /**
      * Gibt die Anzahl aller gespeicherten LKW aus.
-     *
+     * @throws IOException
      */
 
     public void countLKW() throws IOException {
@@ -134,7 +137,7 @@ public class FahrzeugManagement {
 
     /**
      * Berechnet den durchschnittlichen Preis aller gespeicherten Fahrzeuge und gibt es aus.
-     *
+     * @throws IOException
      */
 
     public void meanprice() throws IOException {
@@ -148,7 +151,7 @@ public class FahrzeugManagement {
 
     /**
      * Berechnet den durchschnittlichen Preis aller gespeicherten PKW und gibt es aus.
-     *
+     * @throws IOException
      */
 
     public void meanpricePKW() throws IOException {
@@ -167,7 +170,7 @@ public class FahrzeugManagement {
 
     /**
      * Berechnet den durchschnittlichen Preis aller gespeicherten LKW und gibt es aus.
-     *
+     * @throws IOException
      */
 
     public void meanpriceLKW() throws IOException {
@@ -186,7 +189,7 @@ public class FahrzeugManagement {
 
     /**
      * Berechnet das durchschnittliche Alter aller gespeicherten Fahrzeuge und gibt es aus.
-     *
+     * @throws IOException
      */
 
     public void meanage() throws IOException {
@@ -200,7 +203,7 @@ public class FahrzeugManagement {
 
     /**
      * Findet das bzw. die &auml;ltesten Fahrzeuge und gibt sie aus.
-     *
+     * @throws IOException
      */
 
     public void oldest() throws IOException {
